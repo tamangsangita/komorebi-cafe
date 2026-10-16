@@ -1,0 +1,3024 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family:
+        "Noto Sans JP",
+        "Yu Gothic",
+        sans-serif;
+
+    background: #f7f5f0;
+    color: #29251f;
+    line-height: 1.8;
+}
+
+
+/* ================= HEADER ================= */
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 80px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 5%;
+
+    background: rgba(255,255,255,0.78);
+    backdrop-filter: blur(12px);
+
+    z-index: 1000;
+
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+.logo {
+    display: flex;
+    flex-direction: column;
+    line-height: 1;
+}
+
+.logo span {
+    font-size: 21px;
+    letter-spacing: 4px;
+    font-weight: 600;
+}
+
+.logo small {
+    font-size: 10px;
+    letter-spacing: 5px;
+    margin-top: 6px;
+}
+
+nav {
+    display: flex;
+    gap: 28px;
+}
+
+nav button {
+    border: none;
+    background: transparent;
+
+    font-size: 14px;
+    color: #555;
+
+    cursor: pointer;
+    padding: 10px 0;
+
+    position: relative;
+}
+
+nav button::after {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    bottom: 2px;
+
+    width: 0;
+    height: 1px;
+
+    background: #29251f;
+
+    transition: 0.4s;
+}
+
+nav button:hover::after,
+nav button.active::after {
+    width: 100%;
+}
+
+
+/* ================= PAGE ================= */
+
+.page {
+    display: none;
+}
+
+.page.active {
+    display: block;
+}
+
+
+/* ================= HERO ================= */
+
+.hero-3d {
+    position: relative;
+
+    height: 100vh;
+    min-height: 700px;
+
+    overflow: hidden;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-bg {
+    position: absolute;
+    inset: 0;
+
+    background-image:
+        linear-gradient(
+            rgba(0,0,0,0.28),
+            rgba(0,0,0,0.48)
+        ),
+        url("images/top.jpg");
+
+    background-size: cover;
+    background-position: center;
+
+    transform: scale(1.05);
+
+    animation: heroZoom 10s ease-out forwards;
+}
+
+@keyframes heroZoom {
+
+    from {
+        transform: scale(1.08);
+    }
+
+    to {
+        transform: scale(1);
+    }
+}
+
+
+/* ================= THREE.JS ================= */
+
+#three-container {
+    position: absolute;
+
+    inset: 0;
+
+    z-index: 2;
+
+    pointer-events: none;
+}
+
+.hero-content {
+    position: relative;
+
+    z-index: 5;
+
+    color: white;
+
+    text-align: center;
+
+    max-width: 850px;
+
+    padding: 30px;
+
+    animation: heroText 1.8s ease forwards;
+}
+
+@keyframes heroText {
+
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.hero-small {
+    letter-spacing: 7px;
+    font-size: 13px;
+    margin-bottom: 25px;
+}
+
+.hero-content h1 {
+    font-size: clamp(38px, 6vw, 80px);
+
+    line-height: 1.35;
+
+    font-weight: 500;
+
+    letter-spacing: 5px;
+
+    text-shadow:
+        0 4px 25px rgba(0,0,0,0.3);
+}
+
+.hero-description {
+    margin-top: 30px;
+
+    font-size: 17px;
+
+    letter-spacing: 3px;
+}
+
+.hero-button {
+    margin-top: 35px;
+
+    padding: 14px 38px;
+
+    border: 1px solid white;
+
+    background: rgba(255,255,255,0.08);
+
+    color: white;
+
+    border-radius: 30px;
+
+    cursor: pointer;
+
+    backdrop-filter: blur(8px);
+
+    transition: 0.4s;
+}
+
+.hero-button:hover {
+    background: white;
+    color: #29251f;
+
+    transform: translateY(-4px);
+}
+
+.scroll-text {
+    position: absolute;
+
+    z-index: 6;
+
+    bottom: 35px;
+
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    color: white;
+
+    font-size: 11px;
+
+    letter-spacing: 4px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 5px;
+}
+
+.scroll-text span {
+    font-size: 22px;
+
+    animation: scrollArrow 1.5s infinite;
+}
+
+@keyframes scrollArrow {
+
+    0%,100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(8px);
+    }
+}
+
+
+/* ================= INTRO ================= */
+
+.top-intro {
+    max-width: 1200px;
+
+    margin: auto;
+
+    padding: 160px 6%;
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 90px;
+
+    align-items: center;
+}
+
+.intro-text h2 {
+    font-size: 48px;
+
+    line-height: 1.45;
+
+    font-weight: 500;
+
+    margin: 20px 0 30px;
+}
+
+.intro-text p:last-child {
+    color: #6b665e;
+
+    max-width: 500px;
+}
+
+.section-label {
+    font-size: 11px;
+
+    letter-spacing: 4px;
+
+    color: #887d6d;
+}
+
+.intro-image {
+    overflow: hidden;
+
+    border-radius: 4px;
+}
+
+.intro-image img {
+    width: 100%;
+
+    display: block;
+
+    transition: transform 1s ease;
+}
+
+.intro-image:hover img {
+    transform: scale(1.06);
+}
+
+
+/* ================= MESSAGE ================= */
+
+.message-section {
+    padding: 180px 20px;
+
+    text-align: center;
+
+    background: #e9e5dc;
+}
+
+.message-section h2 {
+    font-size: clamp(38px,5vw,65px);
+
+    line-height: 1.5;
+
+    font-weight: 500;
+
+    margin: 25px 0;
+}
+
+.message-section p:last-child {
+    max-width: 600px;
+
+    margin: auto;
+
+    color: #666;
+}
+
+
+/* ================= LARGE PHOTO ================= */
+
+.large-photo {
+    position: relative;
+
+    height: 80vh;
+
+    min-height: 600px;
+
+    overflow: hidden;
+}
+
+.large-photo img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+
+    transition: transform 1.2s ease;
+}
+
+.large-photo:hover img {
+    transform: scale(1.05);
+}
+
+.photo-text {
+    position: absolute;
+
+    left: 8%;
+    bottom: 10%;
+
+    color: white;
+
+    text-shadow:
+        0 3px 20px rgba(0,0,0,0.4);
+}
+
+.photo-text span {
+    letter-spacing: 5px;
+    font-size: 13px;
+}
+
+.photo-text h2 {
+    font-size: 55px;
+
+    line-height: 1.3;
+
+    font-weight: 500;
+
+    margin-top: 15px;
+}
+
+
+/* ================= PAGE TITLE ================= */
+
+.page-title {
+    padding: 160px 7% 10px;
+
+    text-align: center;
+}
+
+.page-title p {
+    letter-spacing: 5px;
+
+    font-size: 11px;
+
+    color: #8a806f;
+}
+
+.page-title h1 {
+    font-size: 50px;
+
+    font-weight: 500;
+
+    margin: 15px 0;
+}
+
+.page-title span {
+    color: #777;
+}
+
+
+/* ================= MENU ================= */
+
+.menu-tabs {
+    display: flex;
+
+    justify-content: center;
+
+    gap: 15px;
+
+    margin-bottom: 60px;
+}
+
+.tab-btn {
+    border: 1px solid #ccc;
+
+    background: white;
+
+    padding: 9px 25px;
+
+    border-radius: 30px;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.tab-btn.active,
+.tab-btn:hover {
+    background: #29251f;
+
+    color: white;
+}
+
+.menu-grid {
+    max-width: 1100px;
+
+    margin: auto;
+
+    padding: 0 30px 130px;
+
+    display: grid;
+
+    grid-template-columns: repeat(2,1fr);
+
+    gap: 25px;
+}
+
+.menu-item-card {
+    background: white;
+
+    padding: 25px;
+
+    border: 1px solid #eee;
+
+    transition:
+        transform 0.4s,
+        box-shadow 0.4s,
+        opacity 0.4s;
+}
+
+.menu-item-card:hover {
+    transform: translateY(-7px);
+
+    box-shadow:
+        0 20px 50px rgba(0,0,0,0.08);
+}
+
+.menu-content {
+    display: flex;
+
+    justify-content: space-between;
+
+    gap: 20px;
+}
+
+.menu-text {
+    flex: 1;
+}
+
+.item-title {
+    display: flex;
+
+    justify-content: space-between;
+
+    gap: 15px;
+
+    margin-bottom: 12px;
+}
+
+.item-name {
+    font-size: 19px;
+
+    font-weight: 600;
+}
+
+.item-price {
+    white-space: nowrap;
+
+    font-weight: 600;
+}
+
+.item-desc {
+    color: #777;
+
+    font-size: 13px;
+}
+
+.menu-img {
+    width: 180px;
+    height: 140px;
+
+    overflow: hidden;
+
+    flex-shrink: 0;
+}
+
+#menu .menu-img {
+    width: 100%;
+    height: auto;
+    overflow: visible;
+}
+
+#menu .menu-img img {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: none;
+    object-fit: contain;
+    object-position: center;
+}
+
+
+/* ================= SIZE ================= */
+
+.size-select-box {
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    margin-top: 14px;
+
+    font-size: 13px;
+}
+
+.size-select-box label {
+    white-space: nowrap;
+}
+
+.size-select-box select {
+    padding: 4px 27px 4px 8px;
+
+    border: 1px solid #ccc;
+
+    border-radius: 5px;
+
+    background: white;
+
+    font-size: 13px;
+
+    cursor: pointer;
+}
+
+.tsukemono-option {
+    margin-top: 12px;
+
+    font-size: 12px;
+
+    color: #666;
+}
+
+
+/* =====================================================
+   ABOUT PAGE
+   PAGE 03 - お店について
+===================================================== */
+
+.about-content {
+    max-width: 1200px;
+
+    margin: 0 auto;
+
+    padding: 20px 40px 150px;
+}
+
+
+/* ================= COMMON ================= */
+
+.about-block {
+    margin-bottom: 150px;
+}
+
+.about-number {
+    font-size: 12px;
+
+    letter-spacing: 4px;
+
+    color: #9a8e7d;
+
+    margin-bottom: 8px;
+}
+
+.about-label {
+    font-size: 11px;
+
+    letter-spacing: 4px;
+
+    color: #8a7d6b;
+
+    margin-bottom: 20px;
+}
+
+.about-block h2 {
+    font-family:
+        "Yu Mincho",
+        "Hiragino Mincho ProN",
+        serif;
+
+    font-size: 40px;
+
+    line-height: 1.6;
+
+    font-weight: 400;
+
+    margin-bottom: 28px;
+}
+
+.about-block p {
+    color: #666;
+
+    font-size: 14px;
+
+    line-height: 2.2;
+
+    letter-spacing: 0.5px;
+}
+
+
+/* ================= 01 CONCEPT ================= */
+
+.about-concept {
+    max-width: 850px;
+
+    margin: 0 auto 160px;
+
+    text-align: center;
+
+    padding: 70px 20px;
+}
+
+.about-concept h2 {
+    font-size: 48px;
+}
+
+.about-concept > p:last-child {
+    max-width: 700px;
+
+    margin: 0 auto;
+}
+
+
+/* ================= 02 SPACE ================= */
+
+.about-space {
+    display: grid;
+
+    grid-template-columns:
+        1.15fr 0.85fr;
+
+    gap: 80px;
+
+    align-items: center;
+}
+
+.about-block-image {
+    overflow: hidden;
+}
+
+.about-block-image img {
+    width: 100%;
+
+    height: 560px;
+
+    object-fit: cover;
+
+    display: block;
+
+    transition: transform 1s ease;
+}
+
+.about-block-image:hover img {
+    transform: scale(1.04);
+}
+
+.about-space .about-block-text {
+    padding-right: 20px;
+}
+
+
+/* ================= 03 SEAT ================= */
+
+.about-seat {
+    max-width: 900px;
+
+    margin: 0 auto 150px;
+
+    padding: 70px 80px;
+
+    background: #ebe7df;
+}
+
+.about-seat-list {
+    margin-top: 35px;
+}
+
+.about-seat-list div {
+    padding: 18px 0;
+
+    border-bottom:
+        1px solid rgba(0,0,0,0.12);
+}
+
+.about-seat-list div:last-child {
+    border-bottom: none;
+}
+
+.about-seat-list strong {
+    display: block;
+
+    font-size: 15px;
+
+    font-weight: 500;
+
+    margin-bottom: 4px;
+}
+
+.about-seat-list span {
+    font-size: 13px;
+
+    color: #777;
+}
+
+
+/* ================= 04 COFFEE & SWEETS ================= */
+
+.about-coffee {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 60px;
+}
+
+.about-food {
+    background: #fff;
+}
+
+.about-food-image {
+    width: 100%;
+
+    height: 350px;
+
+    overflow: hidden;
+}
+
+.about-food-image img {
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+
+    display: block;
+
+    transition: transform 1s ease;
+}
+
+.about-food:hover .about-food-image img {
+    transform: scale(1.05);
+}
+
+.about-food-text {
+    padding: 35px 35px 40px;
+}
+
+.about-food-text h3 {
+    font-family:
+        "Yu Mincho",
+        "Hiragino Mincho ProN",
+        serif;
+
+    font-size: 27px;
+
+    font-weight: 400;
+
+    margin-bottom: 18px;
+}
+
+.about-food-text p:last-child {
+    font-size: 13px;
+
+    line-height: 2.1;
+}
+
+
+/* ================= 05 MENU / ACCESS LINKS ================= */
+
+.about-links {
+    margin-top: 180px;
+
+    padding: 90px 60px;
+
+    text-align: center;
+
+    background: #29251f;
+
+    color: white;
+}
+
+.about-links .about-label {
+    color: #c9c0b1;
+}
+
+.about-links h2 {
+    font-family:
+        "Yu Mincho",
+        "Hiragino Mincho ProN",
+        serif;
+
+    font-size: 40px;
+
+    line-height: 1.6;
+
+    font-weight: 400;
+
+    margin-bottom: 50px;
+}
+
+.about-link-buttons {
+    display: flex;
+
+    justify-content: center;
+
+    gap: 20px;
+}
+
+.about-link-buttons button {
+    width: 260px;
+
+    padding: 22px 25px;
+
+    border:
+        1px solid rgba(255,255,255,0.5);
+
+    background: transparent;
+
+    color: white;
+
+    cursor: pointer;
+
+    text-align: left;
+
+    transition: 0.4s;
+}
+
+.about-link-buttons button:hover {
+    background: white;
+
+    color: #29251f;
+}
+
+.about-link-buttons span {
+    display: block;
+
+    font-size: 10px;
+
+    letter-spacing: 4px;
+
+    margin-bottom: 7px;
+}
+
+.about-link-buttons strong {
+    font-size: 15px;
+
+    font-weight: 400;
+}
+
+
+/* ================= ACCESS ================= */
+
+.access-section {
+    max-width: 900px;
+
+    margin: 100px auto 140px;
+
+    padding: 0 30px;
+}
+
+.access-info {
+    text-align: center;
+}
+
+.access-info h2 {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 20px;
+
+    font-size: 30px;
+
+    letter-spacing: 5px;
+
+    font-weight: 500;
+
+    margin-bottom: 18px;
+}
+
+.access-info h2::before,
+.access-info h2::after {
+    content: "";
+
+    width: 60px;
+
+    height: 1px;
+
+    background: #cfcfcf;
+}
+
+.access-info h3 {
+    font-size: 18px;
+
+    letter-spacing: 3px;
+
+    font-weight: 400;
+
+    margin-bottom: 45px;
+}
+
+.access-details {
+    max-width: 650px;
+
+    margin: 0 auto;
+
+    padding: 40px 50px;
+
+    background: rgba(255,255,255,0.9);
+
+    border-radius: 12px;
+
+    box-shadow:
+        0 15px 45px rgba(0,0,0,0.08);
+
+    text-align: left;
+}
+
+.access-details p {
+    display: flex;
+
+    align-items: flex-start;
+
+    margin: 0;
+
+    padding: 20px 0;
+
+    border-bottom: 1px solid #eeeeee;
+
+    line-height: 1.8;
+
+    font-size: 16px;
+}
+
+.access-details p:last-child {
+    border-bottom: none;
+}
+
+.access-details strong {
+    width: 130px;
+
+    flex-shrink: 0;
+
+    font-weight: 500;
+
+    letter-spacing: 1px;
+}
+
+.access-details span {
+    color: #888;
+
+    font-size: 13px;
+}
+
+
+/* =====================================================
+   CONTACT
+   PAGE 05 - お問い合わせ
+   PHOTO STYLE
+===================================================== */
+
+#contact {
+    background: #f8f7f3;
+
+    min-height: 100vh;
+}
+
+
+/* ================= CONTACT TITLE ================= */
+
+.contact-title {
+    padding-bottom: 45px;
+}
+
+.contact-title h1 {
+    font-family:
+        "Yu Mincho",
+        "Hiragino Mincho ProN",
+        serif;
+
+    font-weight: 400;
+}
+
+.contact-title span {
+    display: block;
+
+    margin-top: 8px;
+
+    color: #777;
+
+    font-size: 14px;
+}
+
+
+/* ================= CONTACT CONTAINER ================= */
+
+.contact-container {
+    max-width: 1000px;
+
+    margin: 0 auto;
+
+    padding:
+        10px 30px 120px;
+}
+
+
+/* =====================================================
+   ご来店前のお願い
+===================================================== */
+
+.contact-warning {
+    position: relative;
+
+    margin-bottom: 28px;
+
+    padding: 25px 30px 25px 32px;
+
+    background: #f5f2ec;
+
+    border-left: 4px solid #9a6b5d;
+
+    border-radius: 8px;
+
+    box-shadow:
+        0 8px 25px rgba(60,45,30,0.04);
+}
+
+.contact-warning h2 {
+    font-family:
+        "Yu Mincho",
+        "Hiragino Mincho ProN",
+        serif;
+
+    font-size: 18px;
+
+    font-weight: 500;
+
+    color: #4b332d;
+
+    margin-bottom: 10px;
+}
+
+.contact-warning p {
+    font-size: 13px;
+
+    color: #655f58;
+
+    line-height: 2;
+
+    margin-bottom: 3px;
+}
+
+.contact-warning p:last-child {
+    margin-bottom: 0;
+}
+
+.contact-warning strong {
+    color: #4a3a34;
+
+    font-weight: 600;
+}
+
+
+/* =====================================================
+   MAIN CONTACT CARD
+===================================================== */
+
+.contact-card {
+    width: 100%;
+
+    margin: 0 auto;
+
+    padding: 35px 40px 45px;
+
+    background: rgba(255,255,255,0.96);
+
+    border: 1px solid #e6e2db;
+
+    border-radius: 14px;
+
+    box-shadow:
+        0 18px 45px rgba(60,45,30,0.07);
+}
+
+.contact-card > h2 {
+    font-family:
+        "Yu Mincho",
+        "Hiragino Mincho ProN",
+        serif;
+
+    font-size: 24px;
+
+    font-weight: 400;
+
+    color: #39332d;
+
+    margin-bottom: 8px;
+}
+
+.contact-text {
+    font-size: 13px;
+
+    color: #777;
+
+    margin-bottom: 18px;
+}
+
+
+/* =====================================================
+   EMAIL BOX
+===================================================== */
+
+.email-box {
+    width: 100%;
+
+    padding: 20px 20px 22px;
+
+    background: #f5f4ef;
+
+    border: 1px solid #e5e1d9;
+
+    border-radius: 10px;
+
+    text-align: center;
+
+    margin-bottom: 38px;
+}
+
+.email-box span {
+    display: block;
+
+    font-size: 11px;
+
+    letter-spacing: 2px;
+
+    color: #8a8175;
+
+    margin-bottom: 5px;
+}
+
+.email-box a {
+    display: inline-block;
+
+    font-size: 20px;
+
+    font-weight: 600;
+
+    color: #39342e;
+
+    text-decoration: underline;
+
+    text-underline-offset: 4px;
+
+    transition: 0.3s;
+}
+
+.email-box a:hover {
+    color: #8b6f5e;
+
+    opacity: 0.75;
+}
+
+
+/* =====================================================
+   INQUIRY
+===================================================== */
+
+.inquiry {
+    margin-top: 10px;
+}
+
+.inquiry h3 {
+    font-family:
+        "Yu Mincho",
+        "Hiragino Mincho ProN",
+        serif;
+
+    font-size: 17px;
+
+    font-weight: 500;
+
+    color: #423b34;
+
+    margin-bottom: 12px;
+}
+
+.inquiry ul {
+    padding-left: 22px;
+
+    margin: 0;
+}
+
+.inquiry li {
+    font-size: 13px;
+
+    color: #666;
+
+    line-height: 2;
+
+    padding-left: 3px;
+}
+
+.inquiry li::marker {
+    color: #a38f7b;
+}
+
+
+/* =====================================================
+   NO SERVICE / RESERVATION
+===================================================== */
+
+.no-service {
+    margin-top: 40px;
+
+    padding: 25px 28px;
+
+    background: #faf8f4;
+
+    border-top: 1px solid #e5dfd6;
+
+    border-bottom: 1px solid #e5dfd6;
+}
+
+.no-service h3 {
+    font-family:
+        "Yu Mincho",
+        "Hiragino Mincho ProN",
+        serif;
+
+    font-size: 18px;
+
+    font-weight: 500;
+
+    color: #443a32;
+
+    margin-bottom: 12px;
+}
+
+.no-service p {
+    font-size: 13px;
+
+    color: #686158;
+
+    line-height: 2;
+
+    margin-bottom: 5px;
+}
+
+.no-service p:last-child {
+    margin-bottom: 0;
+}
+
+.no-service strong {
+    color: #443831;
+
+    font-weight: 600;
+}
+
+
+/* =====================================================
+   CONTACT ACCESS
+===================================================== */
+
+.contact-access {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 40px;
+
+    margin-top: 30px;
+
+    padding: 38px 40px;
+
+    background: #302a24;
+
+    color: white;
+
+    border-radius: 10px;
+
+    box-shadow:
+        0 15px 35px rgba(40,30,20,0.12);
+}
+
+.contact-access > div {
+    flex: 1;
+}
+
+.contact-access > div > p {
+    font-size: 10px;
+
+    letter-spacing: 4px;
+
+    color: #b9a994;
+
+    margin-bottom: 8px;
+}
+
+.contact-access h2 {
+    font-family:
+        "Yu Mincho",
+        "Hiragino Mincho ProN",
+        serif;
+
+    font-size: 25px;
+
+    font-weight: 400;
+
+    color: white;
+
+    margin-bottom: 8px;
+}
+
+.contact-access > div > span {
+    display: block;
+
+    color: #d0c9c0;
+
+    font-size: 13px;
+
+    line-height: 1.9;
+}
+
+
+/* ================= ACCESS BUTTON ================= */
+
+.contact-access button {
+    width: 280px;
+
+    flex-shrink: 0;
+
+    padding: 18px 22px;
+
+    background: transparent;
+
+    border: 1px solid #b8aa98;
+
+    color: white;
+
+    text-align: left;
+
+    cursor: pointer;
+
+    transition: 0.4s;
+}
+
+.contact-access button:hover {
+    background: white;
+
+    color: #302a24;
+}
+
+.contact-access button span {
+    display: block;
+
+    font-size: 9px;
+
+    letter-spacing: 4px;
+
+    margin-bottom: 6px;
+}
+
+.contact-access button strong {
+    display: block;
+
+    font-size: 13px;
+
+    font-weight: 400;
+}
+
+
+/* ================= FOOTER ================= */
+
+footer {
+    padding: 70px 20px;
+
+    text-align: center;
+
+    background: #29251f;
+
+    color: white;
+}
+
+.footer-logo {
+    letter-spacing: 5px;
+
+    font-size: 20px;
+
+    margin-bottom: 15px;
+}
+
+footer p {
+    opacity: 0.7;
+
+    font-size: 13px;
+}
+
+footer small {
+    display: block;
+
+    margin-top: 30px;
+
+    opacity: 0.4;
+}
+
+
+/* ================= REVEAL ================= */
+
+.reveal {
+    opacity: 0;
+
+    transform: translateY(60px);
+
+    transition:
+        opacity 1s ease,
+        transform 1s ease;
+}
+
+.reveal.show {
+    opacity: 1;
+
+    transform: translateY(0);
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 768px) {
+
+    .header {
+        height: 70px;
+
+        padding: 0 20px;
+    }
+
+    nav {
+        display: none;
+    }
+
+
+    /* ================= HERO ================= */
+
+    .hero-3d {
+        min-height: 650px;
+    }
+
+    .hero-content h1 {
+        font-size: 34px;
+
+        letter-spacing: 2px;
+    }
+
+    .hero-description {
+        font-size: 14px;
+    }
+
+
+    /* ================= TOP ================= */
+
+    .top-intro {
+        grid-template-columns: 1fr;
+
+        gap: 50px;
+
+        padding-top: 100px;
+
+        padding-bottom: 100px;
+    }
+
+    .intro-text h2 {
+        font-size: 35px;
+    }
+
+
+    /* ================= MESSAGE ================= */
+
+    .message-section {
+        padding: 110px 25px;
+    }
+
+    .message-section h2 {
+        font-size: 34px;
+    }
+
+
+    /* ================= LARGE PHOTO ================= */
+
+    .large-photo {
+        height: 65vh;
+
+        min-height: 450px;
+    }
+
+    .photo-text h2 {
+        font-size: 38px;
+    }
+
+
+    /* ================= PAGE TITLE ================= */
+
+    .page-title {
+        padding-top: 120px;
+    }
+
+    .page-title h1 {
+        font-size: 38px;
+    }
+
+
+    /* ================= MENU ================= */
+
+    .menu-grid {
+        grid-template-columns: 1fr;
+
+        padding: 0 20px 100px;
+    }
+
+    .menu-content {
+        flex-direction: column;
+    }
+
+    .menu-img {
+        width: 100%;
+
+        height: 230px;
+
+        order: -1;
+    }
+
+
+    /* =================================================
+       ABOUT MOBILE
+    ================================================= */
+
+    .about-content {
+        padding:
+            10px 20px 90px;
+    }
+
+    .about-block {
+        margin-bottom: 100px;
+    }
+
+
+    /* ================= CONCEPT ================= */
+
+    .about-concept {
+        padding: 40px 10px;
+
+        margin-bottom: 100px;
+    }
+
+    .about-concept h2 {
+        font-size: 34px;
+    }
+
+
+    /* ================= SPACE ================= */
+
+    .about-space {
+        display: block;
+    }
+
+    .about-block-image img {
+        height: 400px;
+    }
+
+    .about-space .about-block-text {
+        padding:
+            35px 0 0;
+    }
+
+    .about-block h2 {
+        font-size: 30px;
+    }
+
+
+    /* ================= SEAT ================= */
+
+    .about-seat {
+        padding:
+            45px 25px;
+    }
+
+
+    /* ================= COFFEE ================= */
+
+    .about-coffee {
+        grid-template-columns: 1fr;
+
+        gap: 35px;
+    }
+
+    .about-food-image {
+        height: 300px;
+    }
+
+
+    /* ================= LINKS ================= */
+
+    .about-links {
+        margin-top: 100px;
+
+        padding: 60px 25px;
+    }
+
+    .about-links h2 {
+        font-size: 32px;
+    }
+
+    .about-link-buttons {
+        flex-direction: column;
+
+        align-items: center;
+    }
+
+    .about-link-buttons button {
+        width: 100%;
+
+        max-width: 350px;
+    }
+
+
+    /* ================= ACCESS ================= */
+
+    .access-section {
+        padding: 0 20px;
+    }
+
+    .access-details {
+        padding:
+            30px 25px;
+    }
+
+    .access-details p {
+        font-size: 14px;
+    }
+
+    .access-details strong {
+        width: 105px;
+    }
+
+
+    /* =================================================
+       CONTACT MOBILE
+    ================================================= */
+
+    .contact-container {
+        padding:
+            10px 20px 90px;
+    }
+
+    .contact-title {
+        padding-bottom: 35px;
+    }
+
+    .contact-title h1 {
+        font-size: 34px;
+    }
+
+    .contact-title span {
+        font-size: 12px;
+    }
+
+
+    /* WARNING */
+
+    .contact-warning {
+        padding:
+            20px 20px 20px 22px;
+
+        margin-bottom: 20px;
+    }
+
+    .contact-warning h2 {
+        font-size: 16px;
+    }
+
+    .contact-warning p {
+        font-size: 12px;
+
+        line-height: 1.9;
+    }
+
+
+    /* CONTACT CARD */
+
+    .contact-card {
+        padding:
+            28px 20px 35px;
+
+        border-radius: 12px;
+    }
+
+    .contact-card > h2 {
+        font-size: 21px;
+    }
+
+    .contact-text {
+        font-size: 12px;
+    }
+
+
+    /* EMAIL */
+
+    .email-box {
+        padding:
+            18px 10px 20px;
+    }
+
+    .email-box span {
+        font-size: 9px;
+
+        letter-spacing: 1px;
+    }
+
+    .email-box a {
+        font-size: 17px;
+    }
+
+
+    /* INQUIRY */
+
+    .inquiry h3 {
+        font-size: 16px;
+    }
+
+    .inquiry li {
+        font-size: 12px;
+
+        line-height: 1.9;
+    }
+
+
+    /* NO SERVICE */
+
+    .no-service {
+        padding:
+            22px 20px;
+    }
+
+    .no-service h3 {
+        font-size: 16px;
+    }
+
+    .no-service p {
+        font-size: 12px;
+    }
+
+
+    /* CONTACT ACCESS */
+
+    .contact-access {
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 25px;
+
+        padding:
+            30px 25px;
+
+        margin-top: 20px;
+    }
+
+    .contact-access h2 {
+        font-size: 22px;
+    }
+
+    .contact-access > div > span {
+        font-size: 12px;
+    }
+
+    .contact-access button {
+        width: 100%;
+    }
+
+}
+
+
+/* =====================================================
+   SMALL MOBILE
+===================================================== */
+
+@media (max-width: 600px) {
+
+    .about-block-image img {
+        height: 350px;
+    }
+
+    .about-food-image {
+        height: 270px;
+    }
+
+    .about-concept h2 {
+        font-size: 30px;
+    }
+
+    .about-block h2 {
+        font-size: 26px;
+    }
+
+    .about-seat {
+        padding:
+            35px 20px;
+    }
+
+    .about-links {
+        padding:
+            50px 20px;
+    }
+
+    .about-links h2 {
+        font-size: 28px;
+    }
+
+    .large-photo {
+        min-height: 400px;
+    }
+
+    .photo-text h2 {
+        font-size: 32px;
+    }
+
+
+    /* CONTACT SMALL MOBILE */
+
+    .contact-container {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    .contact-warning {
+        padding:
+            18px 16px 18px 18px;
+    }
+
+    .contact-card {
+        padding:
+            25px 16px 30px;
+    }
+
+    .email-box a {
+        font-size: 15px;
+    }
+
+    .inquiry ul {
+        padding-left: 18px;
+    }
+
+    .contact-access {
+        padding:
+            28px 20px;
+    }
+
+}
+/* =====================================================
+   ACCESS PAGE - NEW DESIGN
+   ===================================================== */
+
+#access {
+    background: #f7f5f0;
+    min-height: 100vh;
+}
+
+
+/* ================= ACCESS MAIN ================= */
+
+#access .access-section {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px 30px 140px;
+}
+
+
+/* ================= SHOP INFORMATION ================= */
+
+#access .access-info {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+#access .access-label {
+    font-size: 10px;
+    letter-spacing: 5px;
+    color: #9a8975;
+    margin-bottom: 10px;
+}
+
+#access .access-info h2 {
+    font-family:
+        "Yu Mincho",
+        "Hiragino Mincho ProN",
+        serif;
+
+    font-size: 38px;
+    font-weight: 400;
+    letter-spacing: 3px;
+    margin-bottom: 45px;
+    color: #302a24;
+}
+
+
+/* ================= ACCESS DETAILS ================= */
+
+#access .access-details {
+    max-width: 700px;
+    margin: 0 auto;
+
+    background: #fff;
+
+    border: 1px solid #e8e2d9;
+
+    box-shadow:
+        0 15px 45px rgba(60,45,30,0.06);
+
+    text-align: left;
+}
+
+
+#access .access-details p {
+    display: flex;
+    align-items: flex-start;
+
+    margin: 0;
+    padding: 22px 30px;
+
+    border-bottom:
+        1px solid #eee9e2;
+
+    line-height: 1.8;
+    font-size: 14px;
+}
+
+
+#access .access-details p:last-child {
+    border-bottom: none;
+}
+
+
+#access .access-details strong {
+    width: 120px;
+    flex-shrink: 0;
+
+    font-weight: 500;
+
+    color: #71675d;
+
+    letter-spacing: 1px;
+}
+
+
+#access .access-value {
+    color: #39332d;
+}
+
+
+#access .access-value small {
+    display: block;
+
+    margin-top: 3px;
+
+    color: #999;
+
+    font-size: 11px;
+}
+
+
+/* =====================================================
+   ACCESS GUIDE
+===================================================== */
+
+#access .access-guide {
+    max-width: 800px;
+
+    margin:
+        0 auto 100px;
+}
+
+
+#access .access-guide-title {
+    text-align: center;
+
+    margin-bottom: 40px;
+}
+
+
+#access .access-guide-title p {
+    font-size: 10px;
+
+    letter-spacing: 5px;
+
+    color: #9a8975;
+
+    margin-bottom: 8px;
+}
+
+
+#access .access-guide-title h3 {
+    font-family:
+        "Yu Mincho",
+        "Hiragino Mincho ProN",
+        serif;
+
+    font-size: 30px;
+
+    font-weight: 400;
+
+    color: #302a24;
+}
+
+
+/* ================= ROUTE BOX ================= */
+
+#access .route-box {
+    background: #fff;
+
+    border: 1px solid #e7e1d8;
+
+    padding:
+        35px 45px;
+
+    box-shadow:
+        0 15px 40px rgba(60,45,30,0.05);
+}
+
+
+#access .route-step {
+    display: grid;
+
+    grid-template-columns: 50px 1fr;
+
+    gap: 20px;
+
+    align-items: start;
+}
+
+
+#access .route-number {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 42px;
+    height: 42px;
+
+    border-radius: 50%;
+
+    background: #eee8df;
+
+    color: #766a5d;
+
+    font-family: Georgia, serif;
+
+    font-size: 13px;
+}
+
+
+#access .route-step strong {
+    display: block;
+
+    font-family:
+        "Yu Mincho",
+        "Hiragino Mincho ProN",
+        serif;
+
+    font-size: 18px;
+
+    font-weight: 400;
+
+    color: #3b342d;
+
+    margin-bottom: 5px;
+}
+
+
+#access .route-step p {
+    margin: 0;
+
+    font-size: 13px;
+
+    color: #777;
+
+    line-height: 1.9;
+}
+
+
+/* ================= ROUTE LINE ================= */
+
+#access .route-line {
+    width: 1px;
+
+    height: 28px;
+
+    background: #d8d0c5;
+
+    margin:
+        8px 0 8px 21px;
+}
+
+
+/* ================= WALK TIME ================= */
+
+#access .walk-time {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 20px;
+
+    margin-top: 25px;
+
+    padding: 18px;
+
+    background: #e9e2d7;
+
+    color: #4d443b;
+}
+
+
+#access .walk-time span {
+    font-size: 9px;
+
+    letter-spacing: 4px;
+
+    color: #8d7d6b;
+}
+
+
+#access .walk-time strong {
+    font-size: 14px;
+
+    font-weight: 500;
+}
+
+
+/* =====================================================
+   TEMPORARY NOTICE
+===================================================== */
+
+#access .temporary-notice {
+    max-width: 800px;
+
+    margin:
+        0 auto 80px;
+
+    padding:
+        35px 40px;
+
+    background: #f3eee6;
+
+    border: 1px solid #e3dbd0;
+
+    box-shadow:
+        0 12px 30px rgba(60,45,30,0.04);
+}
+
+
+#access .notice-top {
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    margin-bottom: 18px;
+}
+
+
+#access .notice-top p {
+    margin: 0;
+
+    font-size: 10px;
+
+    letter-spacing: 4px;
+
+    color: #9a8975;
+}
+
+
+#access .notice-top span {
+    font-size: 11px;
+
+    color: #999;
+}
+
+
+#access .temporary-notice h3 {
+    font-family:
+        "Yu Mincho",
+        "Hiragino Mincho ProN",
+        serif;
+
+    font-size: 24px;
+
+    font-weight: 400;
+
+    color: #40372f;
+
+    margin-bottom: 12px;
+}
+
+
+#access .notice-text {
+    font-size: 13px;
+
+    color: #70675e;
+
+    line-height: 2;
+
+    margin-bottom: 20px;
+}
+
+
+/* ================= NOTICE ITEM ================= */
+
+#access .notice-item {
+    display: flex;
+
+    align-items: center;
+
+    gap: 20px;
+
+    padding:
+        15px 18px;
+
+    background: white;
+
+    border-left:
+        3px solid #9a8975;
+}
+
+
+#access .notice-item span {
+    flex-shrink: 0;
+
+    font-family: Georgia, serif;
+
+    font-size: 12px;
+
+    color: #9a8975;
+}
+
+
+#access .notice-item p {
+    margin: 0;
+
+    font-size: 13px;
+
+    color: #555;
+}
+
+
+/* =====================================================
+   ACCESS NOTE
+===================================================== */
+
+#access .access-note {
+    max-width: 800px;
+
+    margin: 0 auto;
+
+    padding-top: 25px;
+
+    text-align: center;
+
+    border-top:
+        1px solid #ded8cf;
+}
+
+
+#access .access-note p {
+    margin: 5px 0;
+
+    font-size: 12px;
+
+    color: #888;
+
+    line-height: 1.9;
+}
+
+
+/* =====================================================
+   ACCESS MOBILE
+===================================================== */
+
+@media (max-width: 768px) {
+
+    #access .access-section {
+        padding:
+            10px 20px 100px;
+    }
+
+
+    #access .access-info {
+        margin-bottom: 75px;
+    }
+
+
+    #access .access-info h2 {
+        font-size: 30px;
+
+        margin-bottom: 30px;
+    }
+
+
+    #access .access-details p {
+        padding:
+            18px 20px;
+
+        font-size: 13px;
+    }
+
+
+    #access .access-details strong {
+        width: 100px;
+    }
+
+
+    /* GUIDE */
+
+    #access .access-guide {
+        margin-bottom: 70px;
+    }
+
+
+    #access .access-guide-title h3 {
+        font-size: 25px;
+    }
+
+
+    #access .route-box {
+        padding:
+            28px 22px;
+    }
+
+
+    #access .route-step {
+        grid-template-columns:
+            42px 1fr;
+
+        gap: 15px;
+    }
+
+
+    #access .route-number {
+        width: 36px;
+
+        height: 36px;
+
+        font-size: 11px;
+    }
+
+
+    #access .route-step strong {
+        font-size: 16px;
+    }
+
+
+    #access .route-step p {
+        font-size: 12px;
+    }
+
+
+    #access .route-line {
+        margin-left: 18px;
+    }
+
+
+    #access .walk-time {
+        flex-direction: column;
+
+        gap: 4px;
+
+        text-align: center;
+    }
+
+
+    /* NOTICE */
+
+    #access .temporary-notice {
+        padding:
+            28px 22px;
+
+        margin-bottom: 60px;
+    }
+
+
+    #access .temporary-notice h3 {
+        font-size: 21px;
+    }
+
+
+    #access .notice-text {
+        font-size: 12px;
+    }
+
+
+    #access .notice-item {
+        align-items: flex-start;
+
+        flex-direction: column;
+
+        gap: 4px;
+    }
+
+
+    #access .access-note p {
+        font-size: 11px;
+    }
+
+}
+
+
+/* =====================================================
+   ACCESS SMALL MOBILE
+===================================================== */
+
+@media (max-width: 600px) {
+
+    #access .access-section {
+        padding-left: 15px;
+
+        padding-right: 15px;
+    }
+
+
+    #access .access-info h2 {
+        font-size: 27px;
+    }
+
+
+    #access .access-details p {
+        display: block;
+
+        padding:
+            17px 18px;
+    }
+
+
+    #access .access-details strong {
+        display: block;
+
+        width: auto;
+
+        margin-bottom: 3px;
+    }
+
+
+    #access .access-value {
+        display: block;
+    }
+
+
+    #access .route-box {
+        padding:
+            25px 18px;
+    }
+
+
+    #access .route-step {
+        grid-template-columns:
+            38px 1fr;
+
+        gap: 12px;
+    }
+
+
+    #access .route-number {
+        width: 34px;
+
+        height: 34px;
+    }
+
+
+    #access .route-step strong {
+        font-size: 15px;
+    }
+
+
+    #access .route-step p {
+        font-size: 11px;
+
+        line-height: 1.8;
+    }
+
+
+    #access .temporary-notice {
+        padding:
+            25px 18px;
+    }
+
+}
+/* HERO VIDEO */
+.hero-video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+    z-index: 0;
+    pointer-events: none;
+}
+/* ===== CAFE VIDEO AND PHOTO ANIMATION ===== */
+
+.hero-media {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    overflow: hidden;
+}
+
+.hero-video,
+.hero-slideshow,
+.hero-slideshow img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.hero-video,
+.hero-slideshow img {
+    object-fit: cover;
+    object-position: center;
+}
+
+.hero-slideshow {
+    display: none;
+}
+
+.hero-slideshow img {
+    opacity: 0;
+    animation: cafePhotos 12s infinite;
+}
+
+.hero-slideshow img:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.hero-slideshow img:nth-child(2) {
+    animation-delay: 4s;
+}
+
+.hero-slideshow img:nth-child(3) {
+    animation-delay: 8s;
+}
+
+@keyframes cafePhotos {
+    0%, 28% {
+        opacity: 1;
+    }
+
+    33%, 100% {
+        opacity: 0;
+    }
+}
+
+.hero-content {
+    position: relative;
+    z-index: 5;
+}
+
+.cafe-title span {
+    display: inline-block;
+    opacity: 0;
+    animation: letterAppear 0.5s ease forwards;
+}
+
+.cafe-title span:nth-child(1) { animation-delay: 0s; }
+.cafe-title span:nth-child(2) { animation-delay: 0.2s; }
+.cafe-title span:nth-child(3) { animation-delay: 0.4s; }
+.cafe-title span:nth-child(4) { animation-delay: 0.6s; }
+.cafe-title span:nth-child(5) { animation-delay: 0.8s; }
+.cafe-title span:nth-child(6) { animation-delay: 1s; }
+
+@keyframes letterAppear {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+/* Photo first, menu details below */
+#menu .menu-content {
+    display: flex;
+    flex-direction: column;
+}
+
+#menu .menu-img {
+    order: 1;
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+#menu .menu-img img {
+    display: block;
+    width: 100%;
+    height: 260px;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+#menu .menu-text {
+    order: 2;
+    width: 100%;
+}
+/* MENU: photo gallery style */
+#menu .menu-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 25px;
+    width: 100%;
+}
+
+#menu .menu-item-card {
+    display: block;
+    min-width: 0;
+    padding: 15px;
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+}
+
+#menu .menu-content {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+#menu .menu-img {
+    order: 1;
+    width: 100%;
+    margin: 0 0 15px;
+}
+
+#menu .menu-img img {
+    display: block;
+    width: 100%;
+    height: 200px;
+    object-fit: contain;
+    object-position: center;
+    border-radius: 8px;
+}
+
+#menu .menu-text {
+    order: 2;
+    width: 100%;
+}
+
+#menu .item-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+#menu .item-name {
+    font-weight: bold;
+}
+
+#menu .item-desc {
+    line-height: 1.8;
+    margin-top: 10px;
+}
+
+/* Tablet */
+@media (max-width: 900px) {
+    #menu .menu-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+    #menu .menu-grid {
+        grid-template-columns: 1fr;
+    }
+
+    #menu .menu-img img {
+        height: 230px;
+    }
+}
+
+
+/* Coffee & Sweets category buttons */
+#menu .menu-tabs {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 18px;
+    flex-wrap: wrap;
+    margin: 30px auto 40px;
+}
+
+#menu .menu-tab {
+    min-width: 150px;
+    padding: 13px 28px;
+    border: 1px solid #8b6848;
+    border-radius: 30px;
+    background: transparent;
+    color: #5c4030;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#menu .menu-tab:hover,
+#menu .menu-tab.active {
+    background: #8b6848;
+    color: #fffaf3;
+    border-color: #8b6848;
+    box-shadow: 0 4px 12px rgba(90, 60, 35, 0.18);
+    transform: translateY(-2px);
+}
+
+#menu .menu-tab:focus-visible {
+    outline: 2px solid #c69b68;
+    outline-offset: 4px;
+}
+
+@media (max-width: 600px) {
+    #menu .menu-tabs {
+        gap: 10px;
+    }
+
+    #menu .menu-tab {
+        min-width: 120px;
+        padding: 11px 18px;
+        font-size: 14px;
+    }
+}
+
+.menu-toggle {
+    display: none;
+    background: transparent;
+    border: none;
+    font-size: 32px;
+    color: #5b4636;
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+    }
+
+    .nav-menu {
+        display: none;
+        position: absolute;
+        top: 70px;
+        right: 15px;
+        background: #fffaf3;
+        padding: 15px 25px;
+        border-radius: 12px;
+        box-shadow: 0 4px 15px #0002;
+        flex-direction: column;
+        gap: 18px;
+        z-index: 999;
+    }
+
+    .nav-menu.open {
+        display: flex;
+    }
+
+    .nav-menu a {
+        color: #5b4636;
+        text-decoration: none;
+        font-size: 15px;
+    }
+}
+
+.menu-toggle {
+    display: block;
+    background: transparent;
+    border: none;
+    font-size: 30px;
+    cursor: pointer;
+    color: #5b4636;
+}
+
+.nav-menu {
+    display: none;
+    flex-direction: column;
+    gap: 20px;
+    position: absolute;
+    top: 75px;
+    right: 20px;
+    background: #fffaf3;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px #0002;
+    z-index: 9999;
+}
+
+.nav-menu.open {
+    display: flex;
+}
+
+.nav-menu a {
+    color: #5b4636;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.nav-menu.open {
+    display: flex !important;
+    flex-direction: column;
+}
+
+.nav-menu a {
+    display: block;
+    padding: 10px 15px;
+    white-space: nowrap;
+    cursor: pointer;
+}
+
+
+/* ☕ Cafe menu design */
+.nav-menu {
+    display: none;
+}
+
+.nav-menu.open {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 75px;
+    right: 25px;
+    width: 230px;
+    padding: 18px;
+    gap: 8px;
+    background: rgba(255, 250, 240, 0.97);
+    border: 1px solid #e5d5bf;
+    border-radius: 18px;
+    box-shadow: 0 12px 30px rgba(70, 45, 25, 0.18);
+    z-index: 9999;
+    animation: cafeMenuIn 0.25s ease;
+}
+
+.nav-menu a {
+    display: block;
+    padding: 15px 16px;
+    color: #5b3a29;
+    text-decoration: none;
+    font-size: 16px;
+    border-radius: 10px;
+    transition: background 0.25s, color 0.25s,
+                transform 0.25s;
+}
+
+.nav-menu a:hover {
+    background: #e8d5bb;
+    color: #3b2418;
+    transform: translateX(4px);
+}
+
+.menu-toggle {
+    cursor: pointer;
+    border: none;
+    background: transparent;
+    color: #5b3a29;
+    font-size: 30px;
+    padding: 8px 14px;
+}
+
+@keyframes cafeMenuIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.access-map {
+    width: 100%;
+    text-align: center;
+    margin: 35px auto;
+}
+
+.access-map-image {
+    display: block;
+    width: 90%;
+    max-width: 650px;
+    height: auto;
+    margin: 20px auto;
+    border-radius: 12px;
+    object-fit: contain;
+}
+/* 写真のサイズ調整 */
+img {
+    max-width: 70%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}

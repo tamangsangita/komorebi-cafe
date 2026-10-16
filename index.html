@@ -1,0 +1,910 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>KOMOREBI CAFE</title>
+
+    <link rel="stylesheet"
+          href="style.css">
+
+</head>
+
+
+<body>
+
+
+<!-- ================= HEADER ================= -->
+
+<header class="header">
+
+    <div class="logo">
+    <span class="cafe-title">
+    <span>喫</span><span>茶</span><span>こ</span><span>も</span><span>れ</span><span>び</span>
+</span>
+
+    </div>
+
+
+  <button class="menu-toggle" id="menuToggle">☰</button>
+
+
+<nav class="nav-menu" id="navMenu">
+    <a href="#top" onclick="switchPage('top'); return false;">トップ</a>
+    <a href="#menu" onclick="switchPage('menu'); return false;">メニュー</a>
+    <a href="#about" onclick="switchPage('about'); return false;">お店について</a>
+    <a href="#access" onclick="switchPage('access'); return false;">アクセス</a>
+    <a href="#contact" onclick="switchPage('contact'); return false;">お問い合わせ</a>
+</nav>
+
+</header>
+
+
+<main>
+
+
+<!-- =================================================
+     TOP
+================================================= -->
+
+<section id="top" class="page active">
+
+   <div class="hero-3d">
+
+   <div class="hero-media">
+
+    <video class="hero-video" autoplay muted playsinline>
+        <source src="images/cafe.mp4" type="video/mp4">
+    </video>
+
+    <div class="hero-slideshow">
+        <img src="images/photo1.jpg" alt="Cafe">
+        <img src="images/photo2.jpg" alt="Coffee">
+        <img src="images/photo3.jpg" alt="Cafe interior">
+    </div>
+
+</div>
+
+
+
+<div class="coffee-animation">☕</div>
+
+<div class="hero-content">
+
+        <p class="hero-small">
+            KOMOREBI CAFE
+        </p>
+
+        <p class="hero-description">
+            一杯のコーヒーと、<br>
+            ゆっくり流れる時間を。
+        </p>
+
+    </div>
+</div>
+    </div>
+
+
+    <!-- ================= INTRO ================= -->
+
+    <section class="top-intro reveal">
+
+        <div class="intro-text">
+            <h2>
+                ほっと一息、<br>
+                自分だけの時間。
+            </h2>
+
+            <p>
+                木の温かみとやわらかな照明に包まれた、
+                落ち着いた雰囲気の小さなカフェです。
+
+                香り豊かなコーヒーやこだわりのスイーツを楽しみながら、
+                本棚や観葉植物に囲まれた心地よい空間で、
+                読書や会話など、思い思いの時間をゆっくりお過ごしいただけます。
+            </p>
+
+        </div>
+
+
+        <div class="intro-image">
+
+            <img src="images/cafe.jpg"
+                 alt="こもれびカフェ">
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= MESSAGE ================= -->
+
+    <section class="message-section reveal">
+        <h2>
+            忙しい毎日に、<br>
+            小さな「休憩」を。
+        </h2>
+
+        <p>
+            おいしいコーヒーと心地よい空間で、
+            少しだけ時間を忘れて過ごしてみませんか。
+        </p>
+
+    </section>
+
+
+    <!-- ================= PHOTO ================= -->
+
+    <section class="large-photo reveal">
+
+        <img src="images/interior.jpg"
+             alt="KOMOREBI CAFE">
+
+        <div class="photo-text">
+
+            <span>
+                KOMOREBI CAFE
+            </span>
+
+            <h2>
+                ゆっくりと、<br>
+                心地よく。
+            </h2>
+
+        </div>
+
+    </section>
+
+</section>
+
+
+
+<!-- =================================================
+     MENU
+================================================= -->
+
+<section id="menu" class="page">
+
+    <div class="page-title">
+
+        <p>MENU</p>
+
+        <h1>メニュー</h1>
+
+        <span>
+            Coffee & Sweets
+        </span>
+
+    </div>
+
+
+    <!-- MENU TABS -->
+
+    <div class="menu-tabs">
+    <button class="menu-tab active" data-category="recommend">おすすめ</button>
+    <button class="menu-tab" data-category="drink">ドリンク</button>
+    <button class="menu-tab" data-category="sweets">デザート</button>
+    <button class="menu-tab" data-category="snack">スナック</button>
+</div>
+    <div class="menu-grid">
+
+
+        <!-- ================= BLEND ================= -->
+
+        <div class="menu-item-card"
+             data-category="drink">
+
+            <div class="menu-content">
+
+                <div class="menu-text">
+
+                    <div class="item-title">
+
+                        <span class="item-name">
+                            こもれびブレンド
+                        </span>
+
+                        <span class="item-price">
+
+                            <span id="blend-price">
+                                550
+                            </span>
+
+                            円
+
+                        </span>
+
+                    </div>
+
+                    <p class="item-desc">
+                        深みと香りのバランスが良い、
+                        店の名前を冠したオリジナルブレンド。
+                    </p>
+
+                    <div class="tsukemono-option">
+
+                    </div>
+
+                </div>
+
+
+                <div class="menu-img">
+
+                    <img src="images/blend.jpg"
+                         alt="こもれびブレンド">
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- ================= LATTE ================= -->
+
+        <div class="menu-item-card"
+             data-category="drink">
+
+            <div class="menu-content">
+
+                <div class="menu-text">
+
+                    <div class="item-title">
+
+                        <span class="item-name">
+                            カフェラテ
+                        </span>
+
+                        <span class="item-price">
+                            620円
+                        </span>
+
+                    </div>
+
+                    <p class="item-desc">
+                        エスプレッソとミルクを合わせた
+                        まろやかな味わい。
+                    </p>
+                </div>
+
+
+                <div class="menu-img">
+
+                    <img src="images/latte.jpg"
+                         alt="カフェラテ">
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- ================= LEMONADE ================= -->
+
+        <div class="menu-item-card"
+             data-category="drink">
+
+            <div class="menu-content">
+
+                <div class="menu-text">
+
+                    <div class="item-title">
+
+                        <span class="item-name">
+                            自家製レモネード
+                        </span>
+
+                        <span class="item-price">
+                            580円
+                        </span>
+
+                    </div>
+
+                    <p class="item-desc">
+                        爽やかな酸味と自然な甘さが
+                        楽しめる自家製レモネード。
+                    </p>
+                </div>
+
+
+                <div class="menu-img">
+
+                    <img src="images/lemonade.jpg"
+                         alt="自家製レモネード">
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- ================= CHEESECAKE ================= -->
+
+        <div class="menu-item-card"
+             data-category="sweets">
+
+            <div class="menu-content">
+
+                <div class="menu-text">
+
+                    <div class="item-title">
+
+                        <span class="item-name">
+                            チーズケーキ
+                        </span>
+
+                        <span class="item-price">
+                            680円
+                        </span>
+
+                    </div>
+
+                    <p class="item-desc">
+                        濃厚でなめらかな、
+                        カフェおすすめのチーズケーキ。
+                    </p>
+
+                </div>
+
+
+                <div class="menu-img">
+
+                    <img src="images/cheesecake.jpg"
+                         alt="チーズケーキ">
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- ================= SCONE ================= -->
+
+        <div class="menu-item-card"
+             data-category="snack">
+
+            <div class="menu-content">
+
+                <div class="menu-text">
+
+                    <div class="item-title">
+
+                        <span class="item-name">
+                            焼きたてスコーン
+                        </span>
+
+                        <span class="item-price">
+                            420円
+                        </span>
+
+                    </div>
+
+                    <p class="item-desc">
+                        外はサクッと、中はふんわり。
+                        コーヒーとの相性も抜群です。
+                    </p>
+
+                </div>
+
+
+                <div class="menu-img">
+
+                    <img src="images/scone.jpg"
+                         alt="焼きたてスコーン">
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =================================================
+     ABOUT / PAGE 03
+================================================= -->
+
+<section id="about" class="page">
+    <div class="page-title">
+    <h1>お店について</h1>
+   </div>
+    <div class="about-content">
+
+
+        <!-- ================= 01 CONCEPT ================= -->
+
+        <section class="about-block about-concept">
+            <h2>
+                木漏れ日のように、<br>
+                心ほどける時間を。
+            </h2>
+
+            <p>
+                KOMOREBI CAFEは、
+                忙しい毎日の中でほっと一息つける
+                小さなカフェです。
+
+                木の温かみとやわらかな光に包まれながら、
+                一杯のコーヒーとともに、
+                心が少し軽くなるような、
+                ゆっくりとした時間をお過ごしいただけます。
+            </p>
+
+        </section>
+
+
+
+        <!-- ================= 02 SPACE ================= -->
+
+        <section class="about-block about-space">
+
+            <div class="about-block-image">
+
+                <img src="images/interior.jpg"
+                     alt="店内の雰囲気">
+
+            </div>
+
+
+            <div class="about-block-text">
+                <h2>
+                    木のぬくもりに包まれた、<br>
+                    落ち着いた店内。
+                </h2>
+                <p>
+                    木を基調とした店内には、
+                    やわらかな照明と観葉植物を配置しています。
+
+                    静かで落ち着いた雰囲気の中で、
+                    コーヒーやスイーツを楽しみながら
+                    ゆっくり過ごしていただけます。
+                </p>
+
+            </div>
+
+        </section>
+        <!-- ================= 03 SEAT ================= -->
+
+        <section class="about-block about-seat">
+            <h2>
+                その日の気分に合わせて、<br>
+                自分らしい時間を。
+            </h2>
+
+            <p>
+                一人でゆっくり読書をしたり、
+                友人と会話を楽しんだり、
+                カフェで仕事や勉強をしたり。
+
+                それぞれのスタイルで
+                心地よい時間を過ごしていただけます。
+            </p>
+
+
+            <div class="about-seat-list">
+
+                <div>
+
+                    <strong>
+                        一人でゆっくり
+                    </strong>
+
+                    <span>
+                        読書やコーヒーを楽しむ時間
+                    </span>
+
+                </div>
+
+
+                <div>
+
+                    <strong>
+                        友人との会話
+                    </strong>
+
+                    <span>
+                        スイーツを囲んで楽しいひととき
+                    </span>
+
+                </div>
+
+
+                <div>
+
+                    <strong>
+                        仕事・勉強
+                    </strong>
+
+                    <span>
+                        落ち着いた空間で集中する時間
+                    </span>
+
+                </div>
+
+            </div>
+
+        </section>
+        <!-- ================= 04 COFFEE & SWEETS ================= -->
+
+        <section class="about-block about-coffee">
+            <div class="about-food">
+
+                <div class="about-food-image">
+                    <img src="images/blend.jpg"
+                         alt="こもれびブレンド">
+                </div>
+                <div class="about-food-text">
+
+                    <h3>
+                        一杯ずつ丁寧に。
+                    </h3>
+                    <p>
+                        豊かな香りと深みのある味わいを
+                        楽しんでいただけるよう、
+                        コーヒー豆の香りと味のバランスに
+                        こだわっています。
+                    </p>
+                </div>
+            </div>
+            <div class="about-food">
+                <div class="about-food-image">
+                    <img src="images/scone.jpg"
+                         alt="焼きたてスコーン">
+                </div>
+                <div class="about-food-text">
+                    <h3>
+                        コーヒーに合う焼き菓子。
+                    </h3>
+                    <p>
+                        外はサクッと、中はふんわり。
+                        コーヒーと一緒に楽しめる
+                        焼きたてのスコーンなど、
+                        素材の味を大切にした
+                        焼き菓子をご用意しています。
+                    </p>
+                </div>
+            </div>
+        </section>
+        <!-- ================= 05 LINKS ================= -->
+
+        <section class="about-links">
+            <h2>
+                KOMOREBI CAFEを<br>
+                もっと楽しむ。
+            </h2>
+            <div class="about-link-buttons">
+                <button onclick="switchPage('menu')">
+                    <strong>
+                        メニューを見る →
+                    </strong>
+                </button>
+                <button onclick="switchPage('access')">
+                    <strong>
+                        アクセスを見る →
+                    </strong>
+
+                </button>
+
+            </div>
+
+        </section>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =================================================
+     ACCESS
+================================================= -->
+
+<section id="access" class="page">
+    <div class="page-title">
+        <h1>アクセス</h1>
+    </div>
+    <div class="access-section">
+        <div class="access-info">
+            <h2>
+                KOMOREBI CAFE
+            </h2>
+            <h3>
+                営業時間・場所
+            </h3>
+            <div class="access-details">
+                <p>
+                    <strong>
+                        営業時間：
+                    </strong>
+                    10:00〜18:00
+                </p>
+                <p>
+                    <strong>
+                        定休日：
+                    </strong>
+                    水曜日
+                </p>
+                <p>
+                    <strong>
+                        住所：
+                    </strong>
+                    緑町1丁目3-5
+                    <span>
+                        （課題用の架空住所）
+                    </span>
+                </p>
+                <p>
+                    <strong>
+                        アクセス：
+                    </strong>
+                    緑町駅から徒歩7分
+                </p>
+                <p>
+                    <strong>
+                        駐車場：
+                    </strong>
+                    なし
+                </p>
+            </div>
+           <!-- 駅からの道順 -->
+           <!-- 簡単な案内図 -->
+         <div class="access-map">
+         <h3>駅からの道順</h3>
+
+         <img
+          src="images/access-map.jpg"
+         alt="緑町駅からKOMOREBI CAFEまでの案内図"
+         class="access-map-image">
+         <p class="route-note">
+        緑町駅から徒歩約7分
+       </p>
+      </div>
+
+     </div>
+    </div>
+    </div>
+  </section>
+
+
+
+<!-- =================================================
+     CONTACT / PAGE 05
+================================================= -->
+
+<section id="contact" class="page">
+
+
+    <!-- ================= CONTACT TITLE ================= -->
+
+    <div class="page-title contact-title">
+        <h1>
+            お問い合わせ
+        </h1>
+
+        <span>
+            ご不明な点やご質問はこちらよりご連絡ください。
+        </span>
+
+    </div>
+
+
+
+    <div class="contact-container">
+
+
+        <!-- ============================================
+             ご来店前のお願い
+        ============================================= -->
+
+        <div class="contact-warning">
+
+            <h2>
+                【ご来店前のお願い】
+            </h2>
+
+            <p>
+                当店では、すべてのお客様に落ち着いた時間を
+                お過ごしいただくため、
+                <strong>
+                    お席のご予約、お取り置き、オンライン注文、事前決済
+                </strong>
+                は一切承っておりません。
+            </p>
+
+            <p>
+                ご来店順にご案内しておりますので、
+                直接店舗までお越しください。
+            </p>
+
+        </div>
+
+
+
+        <!-- ============================================
+             メールでのお問い合わせ
+        ============================================= -->
+
+        <div class="contact-card">
+
+            <h2>
+                メールでのお問い合わせ
+            </h2>
+
+            <p class="contact-text">
+                以下の専用アドレス宛にご連絡ください。
+            </p>
+
+
+            <!-- EMAIL BOX -->
+
+            <div class="email-box">
+
+                <span>
+                    お問い合わせ用メールアドレス
+                </span>
+
+                <a href="mailto:hello@example.com">
+                    hello@example.com
+                </a>
+
+            </div>
+
+
+
+            <!-- ========================================
+                 問い合わせ可能な内容
+            ========================================= -->
+
+            <div class="inquiry">
+
+                <h3>
+                    お問い合わせ可能な内容例
+                </h3>
+
+                <ul>
+
+                    <li>
+                        使用食材のアレルギーに関するご質問
+                    </li>
+
+                    <li>
+                        取材や撮影に関するご相談
+                    </li>
+
+                    <li>
+                        お忘れ物・落とし物に関するお問い合わせ
+                    </li>
+
+                    <li>
+                        営業時間に関するご質問
+                    </li>
+
+                    <li>
+                        店舗へのアクセスに関するご質問
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+
+            <!-- ========================================
+                 ご予約・ご注文について
+            ========================================= -->
+
+            <div class="no-service">
+
+                <h3>
+                    ご予約・ご注文について
+                </h3>
+
+                <p>
+                    当店では、
+                    <strong>
+                        席のご予約・商品の取り置き・オンライン注文
+                    </strong>
+                    を受け付けておりません。
+                </p>
+
+                <p>
+                    ご来店いただいた際に、
+                    店内の空いているお席をご利用ください。
+                </p>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- ============================================
+             ACCESS
+        ============================================= -->
+
+        <div class="contact-access">
+
+            <div>
+                <h2>
+                    営業時間・アクセス
+                </h2>
+
+                <span>
+                    営業時間や店舗へのアクセスはこちらから
+                    ご確認いただけます。
+                </span>
+
+            </div>
+
+
+            <button onclick="switchPage('access')">
+                <strong>
+                    営業時間・アクセスを見る →
+                </strong>
+
+            </button>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+</main>
+
+
+
+<!-- =================================================
+     FOOTER
+================================================= -->
+
+<footer>
+
+    <div class="footer-logo">
+        KOMOREBI CAFE
+    </div>
+
+    <p>
+        木漏れ日のように、
+        心ほどける時間を。
+    </p>
+
+    <small>
+        © KOMOREBI CAFE
+    </small>
+
+</footer>
+
+
+
+<!-- =================================================
+     THREE.JS
+================================================= -->
+
+<script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
+
+<script src="script.js"></script>
+
+
+</body>
+
+</html>
